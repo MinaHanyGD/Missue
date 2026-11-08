@@ -1,0 +1,1728 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MISSUE 2027 Scientific Program</title>
+  <style>
+    :root {
+      --bg: #f4efe8;
+      --panel: rgba(38, 26, 15, 0.68);
+      --panel-strong: #2d2219;
+      --card: #f7f1e7;
+      --card-soft: #f0e9df;
+      --gold: #d7b26d;
+      --gold-strong: #c89949;
+      --text: #1d140f;
+      --muted: #766856;
+      --white: #ffffff;
+      --line: rgba(255,255,255,0.2);
+      --shadow: 0 26px 50px rgba(29, 20, 15, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .page-shell {
+      width: min(1220px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(23, 16, 12, 0.65);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .topbar-inner {
+      width: min(1220px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      gap: 22px;
+    }
+
+    .nav .nav-menu {
+      display: contents;
+    }
+
+    .nav .nav-menu a {
+      color: rgba(255,255,255,0.8);
+      font-weight: 600;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav .nav-toggle {
+      display: none;
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 999px;
+      padding: 10px 15px;
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .brand-mark {
+      width: 120px;
+      height: 52px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.22));
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-text small {
+      font-size: 0.56rem;
+      letter-spacing: 0.22em;
+      opacity: 0.82;
+      text-transform: uppercase;
+    }
+
+    .brand-text strong {
+      font-size: clamp(1.2rem, 2vw, 2rem);
+      letter-spacing: 0.04em;
+      color: var(--gold);
+    }
+
+    .brand-text strong span {
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: rgba(255,255,255,0.8);
+      font-weight: 600;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav a:hover { color: var(--white); }
+
+    .nav a.active::after,
+    .nav a:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 999px;
+    }
+
+    .hero {
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(17,13,10,0.68) 0%, rgba(17,13,10,0.45) 38%, rgba(17,13,10,0.62) 100%),
+        url('missue-background.jpg') center/cover no-repeat;
+      min-height: 830px;
+      display: flex;
+      align-items: flex-end;
+      color: var(--white);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17,13,10,0.08) 0%, rgba(17,13,10,0.66) 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1220px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 120px 0 80px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      opacity: 0.98;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 72px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(215,178,109,0.05), rgba(215,178,109,0.9), rgba(215,178,109,0.05));
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(4rem, 9vw, 9rem);
+      line-height: 0.88;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+    }
+
+    h1 .gold {
+      display: block;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      max-width: 760px;
+      font-size: clamp(1.6rem, 3vw, 3rem);
+      line-height: 1.2;
+      font-weight: 500;
+      margin: 0 0 26px;
+      color: rgba(255,255,255,0.95);
+    }
+
+    .theme-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 50px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(5px);
+      margin-bottom: 28px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: var(--white);
+      gap: 12px;
+    }
+
+    .theme-pill .plus {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(215,178,109,0.18);
+      color: var(--gold);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap: 18px;
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .info-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+
+    .info-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(215,178,109,0.14);
+      color: var(--gold);
+      border: 1px solid rgba(215,178,109,0.4);
+      font-size: 1.2rem;
+    }
+
+    .info-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 4px;
+    }
+
+    .info-value {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      min-height: 56px;
+      padding: 0 26px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: linear-gradient(180deg, #e5c582 0%, #d9b468 100%);
+      color: #1e160f;
+      box-shadow: 0 10px 18px rgba(215,178,109,0.25);
+    }
+
+    .button.secondary {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.18);
+      color: var(--white);
+    }
+
+    .section {
+      padding: 88px 0;
+      scroll-margin-top: 110px;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 3vw, 3rem);
+      letter-spacing: -0.04em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(215,178,109,0.12);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 700px;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #fffdfb;
+      border: 1px solid rgba(41,31,22,0.07);
+      border-radius: 20px;
+      box-shadow: 0 12px 28px rgba(25,18,12,0.06);
+      overflow: hidden;
+    }
+
+    .program-card {
+      padding: 26px 22px 22px;
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(245,239,230,0.96));
+    }
+
+    .program-card .day-tag {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(215,178,109,0.12);
+      border: 1px solid rgba(215,178,109,0.28);
+      color: #7d5f2a;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .program-card h3 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+    }
+
+    .program-card p {
+      margin: 0 0 18px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .program-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .program-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(29,20,15,0.08);
+      font-size: 0.96rem;
+      color: var(--text);
+    }
+
+    .program-list li:last-child { border-bottom: none; }
+
+    .program-list strong {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .schedule-block {
+      background: linear-gradient(180deg, rgba(39,28,16,0.96), rgba(21,15,11,0.96));
+      color: var(--white);
+      border-radius: 26px;
+      padding: 26px 24px 8px;
+      margin-top: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .schedule-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .schedule-header h3 {
+      margin: 0;
+      font-size: clamp(1.7rem, 2vw, 2.3rem);
+      letter-spacing: -0.04em;
+    }
+
+    .schedule-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: 26px;
+    }
+
+    .session-day {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .session-day h4 {
+      margin: 0;
+      padding: 16px 20px;
+      background: rgba(215,178,109,0.12);
+      color: var(--gold);
+      font-size: 1.2rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .session-list {
+      list-style: none;
+      margin: 0;
+      padding: 12px 0 0;
+    }
+
+    .session-list li {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+      padding: 16px 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .session-time {
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .session-text strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.02rem;
+    }
+
+    .session-text span {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      display: block;
+      font-size: 0.97rem;
+    }
+
+    .agenda-day {
+      scroll-margin-top: 110px;
+      margin-top: 28px;
+      padding: 26px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #302318, #211710);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .agenda-day > h3 {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+    }
+
+    .agenda-day > p {
+      margin: 0 0 22px;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .agenda-session {
+      margin-top: 16px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .agenda-session h4 {
+      margin: 0;
+      font-size: 1.12rem;
+    }
+
+    .agenda-session .session-meta {
+      margin: 6px 0 14px;
+      color: var(--gold);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .agenda-session .session-note {
+      margin: 10px 0 0;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .agenda-table-wrap {
+      overflow-x: auto;
+      border-radius: 10px;
+    }
+
+    .agenda-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 440px;
+      text-align: left;
+    }
+
+    .agenda-table th,
+    .agenda-table td {
+      padding: 11px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .agenda-table th {
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .agenda-table td:first-child {
+      white-space: nowrap;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .agenda-table tr:last-child td { border-bottom: none; }
+
+    .faculty-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+    }
+
+    .faculty-list li {
+      padding: 8px 11px;
+      border: 1px solid rgba(215,178,109,0.24);
+      border-radius: 999px;
+      background: rgba(215,178,109,0.08);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.9rem;
+    }
+
+    .tba {
+      color: rgba(255,255,255,0.62);
+      font-style: italic;
+    }
+
+    .program-note {
+      margin: 18px 0 0;
+      padding: 14px 16px;
+      border-left: 3px solid var(--gold);
+      border-radius: 8px;
+      background: rgba(215,178,109,0.08);
+      color: rgba(255,255,255,0.78);
+      line-height: 1.6;
+    }
+
+    .welcome-section {
+      position: relative;
+      overflow: hidden;
+      padding: 92px 0;
+      scroll-margin-top: 76px;
+      background:
+        radial-gradient(ellipse at 92% 10%, rgba(215,178,109,0.19), transparent 34%),
+        linear-gradient(140deg, #26190f 0%, #382617 54%, #1c140f 100%);
+      color: var(--white);
+    }
+
+    .welcome-section::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      top: -190px;
+      right: -120px;
+      border: 1px solid rgba(215,178,109,0.2);
+      border-radius: 50%;
+      box-shadow: 0 0 0 32px rgba(215,178,109,0.035), 0 0 0 64px rgba(215,178,109,0.025);
+      pointer-events: none;
+    }
+
+    .welcome-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .welcome-intro,
+    .welcome-letter {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      background: rgba(255,255,255,0.055);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 24px 55px rgba(0,0,0,0.18);
+    }
+
+    .welcome-intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(26px, 4vw, 46px);
+    }
+
+    .welcome-kicker {
+      margin: 0 0 15px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .welcome-intro h2 {
+      margin: 0;
+      max-width: 520px;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+    }
+
+    .welcome-intro h2 span {
+      display: block;
+      margin-top: 8px;
+      color: var(--gold);
+    }
+
+    .welcome-intro-copy {
+      margin: 22px 0 28px;
+      max-width: 500px;
+      color: rgba(255,255,255,0.74);
+      font-size: 1.04rem;
+      line-height: 1.8;
+    }
+
+    .welcome-date {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .welcome-date-mark {
+      display: grid;
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      place-items: center;
+      border: 1px solid rgba(215,178,109,0.42);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 1.15rem;
+    }
+
+    .welcome-date strong,
+    .welcome-date span {
+      display: block;
+    }
+
+    .welcome-date strong {
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+
+    .welcome-date span {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+    }
+
+    .welcome-letter {
+      padding: clamp(26px, 4vw, 44px);
+    }
+
+    .welcome-letter-heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .welcome-letter-heading .quote-mark {
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 4.2rem;
+      line-height: 0.8;
+    }
+
+    .welcome-letter-heading h3 {
+      margin: 0 0 7px;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      letter-spacing: -0.04em;
+    }
+
+    .welcome-letter-heading p {
+      margin: 0;
+      color: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .welcome-letter-body {
+      display: grid;
+      gap: 14px;
+    }
+
+    .welcome-letter-body p {
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+      font-size: 0.97rem;
+      line-height: 1.78;
+    }
+
+    .welcome-letter-body .welcome-signoff {
+      padding-top: 17px;
+      border-top: 1px solid rgba(255,255,255,0.13);
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .about-section {
+      padding: 84px 0;
+      background: linear-gradient(180deg, #f8f4ed, #f0e9df);
+      scroll-margin-top: 76px;
+    }
+
+    .about-heading {
+      max-width: 790px;
+      margin-bottom: 30px;
+    }
+
+    .about-heading .section-title {
+      margin-bottom: 12px;
+    }
+
+    .about-heading p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.04rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .about-copy,
+    .about-days {
+      border: 1px solid rgba(41,31,22,0.08);
+      border-radius: 22px;
+      background: rgba(255,255,255,0.76);
+      box-shadow: 0 16px 35px rgba(29,20,15,0.06);
+    }
+
+    .about-copy {
+      padding: clamp(24px, 4vw, 38px);
+    }
+
+    .about-copy p {
+      margin: 0;
+      color: #514638;
+      font-size: 1.02rem;
+      line-height: 1.85;
+    }
+
+    .about-days {
+      display: grid;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .about-day {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 18px;
+      padding: 22px 24px;
+    }
+
+    .about-day + .about-day {
+      border-top: 1px solid rgba(41,31,22,0.08);
+    }
+
+    .about-day-date {
+      color: #8d6327;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .about-day h3 {
+      margin: 0 0 6px;
+      font-size: 1.08rem;
+    }
+
+    .about-day p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+    .about-tagline {
+      margin: 24px 0 0;
+      padding: 20px 24px;
+      border-radius: 16px;
+      background: #302318;
+      color: var(--white);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-weight: 700;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .speaker-card {
+      border-radius: 22px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(244,236,226,1));
+      border: 1px solid rgba(29,20,15,0.08);
+      box-shadow: 0 16px 28px rgba(25,18,12,0.05);
+    }
+
+    .speaker-photo {
+      height: 280px;
+      background:
+        linear-gradient(180deg, rgba(24,17,11,0.2), rgba(24,17,11,0.32)),
+        linear-gradient(135deg, #e8bf7a, #ad7d3a, #56412b);
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      padding-bottom: 18px;
+      color: rgba(255,255,255,0.94);
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    .speaker-body {
+      padding: 20px 20px 22px;
+    }
+
+    .speaker-body h4 {
+      margin: 0 0 6px;
+      font-size: 1.5rem;
+      letter-spacing: -0.03em;
+    }
+
+    .speaker-role {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: #7d5f2a;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .speaker-body p {
+      margin: 0;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    #speakers .speaker-card { min-height: 0; }
+    #speakers .speaker-photo { height: auto; min-height: 0; padding: 20px; justify-content: flex-start; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); background: #302318; }
+    #speakers .speaker-body { color: var(--text); }
+
+    .venue-section {
+      background: linear-gradient(180deg, rgba(245,239,232,0.85), rgba(255,255,255,0.92));
+      border-radius: 32px;
+      padding: 28px;
+      border: 1px solid rgba(41,31,22,0.08);
+      box-shadow: 0 20px 40px rgba(29,20,15,0.06);
+    }
+
+    .venue-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .venue-map {
+      min-height: 270px;
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(18,13,10,0.04), rgba(18,13,10,0.15)),
+        repeating-linear-gradient(90deg, rgba(215,178,109,0.18) 0 2px, transparent 2px 42px),
+        repeating-linear-gradient(0deg, rgba(215,178,109,0.14) 0 2px, transparent 2px 42px),
+        linear-gradient(135deg, #d6b77a, #9a7244, #524438);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .venue-map::before,
+    .venue-map::after {
+      content: "";
+      position: absolute;
+      border-radius: 18px;
+      border: 3px solid rgba(255,255,255,0.75);
+    }
+
+    .venue-map::before {
+      width: 58%;
+      height: 42%;
+      left: 18%;
+      top: 22%;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .venue-map::after {
+      width: 16%;
+      height: 20%;
+      right: 18%;
+      bottom: 16%;
+      background: rgba(255,255,255,0.18);
+    }
+
+    .marker {
+      position: absolute;
+      left: 52%;
+      top: 52%;
+      width: 24px;
+      height: 24px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      box-shadow: 0 0 0 14px rgba(255,255,255,0.16), 0 10px 18px rgba(0,0,0,0.2);
+      transform: translate(-50%, -50%);
+    }
+
+    .venue-details {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .venue-item {
+      background: rgba(255,255,255,0.66);
+      border-radius: 18px;
+      padding: 18px 20px;
+      border: 1px solid rgba(29,20,15,0.06);
+    }
+
+    .venue-item .label {
+      margin-bottom: 8px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #7d5f2a;
+    }
+
+    .venue-item strong {
+      font-size: 1.4rem;
+      letter-spacing: -0.04em;
+    }
+
+    .venue-item p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .welcome-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .welcome-section { padding: 66px 0; }
+      .about-section { padding: 64px 0; }
+    }
+
+    .cta-banner {
+      margin-top: 46px;
+      background: linear-gradient(135deg, rgba(19,13,10,1), rgba(43,31,20,1));
+      border-radius: 24px;
+      padding: 30px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      color: var(--white);
+      box-shadow: var(--shadow);
+      flex-wrap: wrap;
+    }
+
+    .cta-banner h3 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      letter-spacing: -0.04em;
+    }
+
+    .cta-banner p {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+    }
+
+    .footer {
+      background: #1c140f;
+      color: rgba(255,255,255,0.82);
+      padding: 28px 0 42px;
+    }
+
+    .footer-inner {
+      width: min(1220px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .program-grid,
+      .speaker-grid,
+      .schedule-wrap,
+      .venue-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .agenda-day { padding: 18px; }
+      .agenda-session { padding: 16px; }
+
+      .brand {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .topbar-inner {
+        flex-direction: column;
+        padding: 14px 0 18px;
+      }
+
+      .nav {
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: 720px;
+      }
+
+      .hero-inner {
+        padding-top: 90px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar-inner {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .brand {
+        width: auto;
+        justify-content: flex-start;
+      }
+
+      .brand-mark {
+        width: 86px;
+        height: 42px;
+      }
+
+      .brand-text small { font-size: 0.48rem; }
+      .brand-text strong { font-size: 1.2rem; }
+
+      .nav {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      .nav .nav-toggle { display: inline-flex; }
+
+      .nav .nav-menu {
+        display: none;
+        width: 100%;
+        padding: 10px 12px 14px;
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 16px;
+        background: rgba(23,16,12,0.96);
+      }
+
+      .nav.is-open .nav-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav .nav-menu a {
+        padding: 12px 6px;
+        border-bottom: 1px solid rgba(255,255,255,0.09);
+      }
+
+      .nav .nav-menu a:last-child { border-bottom: 0; }
+
+      .nav a.active::after,
+      .nav a:hover::after { display: none; }
+
+      .about-day {
+        grid-template-columns: 72px 1fr;
+        gap: 12px;
+        padding: 18px;
+      }
+
+      h1 { font-size: 4rem; }
+      .hero-sub { font-size: 1.3rem; }
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      .session-list li {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .cta-banner {
+        padding: 22px 18px;
+      }
+      .button {
+        width: 100%;
+      }
+      .hero-actions {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand" aria-label="MISSUE 2027 logo">
+        <img class="brand-mark" src="Logo 1.png" alt="MISSUE logo" />
+        <div class="brand-text">
+          <small>International Annual</small>
+          <strong>MISSUE <span>2027</span></strong>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Main navigation" id="main-navigation">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+        <div class="nav-menu" id="nav-menu">
+          <a href="#welcome">Welcome</a>
+          <a href="#about">About</a>
+          <a href="#program" class="active">Program</a>
+          <a href="#day1">Day 1</a>
+          <a href="#day2">Day 2</a>
+          <a href="#speakers">Speakers</a>
+          <a href="#venue">Venue</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="missue-hero">
+      <div class="hero-inner">
+        <div class="eyebrow">10th annual conference</div>
+        <h1>
+          Scientific
+          <span class="gold">Program</span>
+        </h1>
+        <p class="hero-sub">
+          Minimal Invasive Surgery Society of Upper Egypt and TAKAMOL Foundation
+        </p>
+
+        <div class="theme-pill">
+          <span class="plus">+</span>
+          Conference Theme / Uterus in Focus
+        </div>
+
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-icon">◔</div>
+            <div>
+              <div class="info-label">Conference Dates</div>
+              <div class="info-value">27–29 January 2027</div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <div class="info-icon">⌂</div>
+            <div>
+              <div class="info-label">Venue</div>
+              <div class="info-value">Pyramisa Hotel Aswan</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#program">Explore the program</a>
+          <a class="button secondary" href="#day1">View conference days</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="welcome-section" id="welcome">
+      <div class="page-shell welcome-grid">
+        <div class="welcome-intro">
+          <div>
+            <p class="welcome-kicker">A message from the organizing committee</p>
+            <h2>Welcome to <span>MISSUE 2027</span></h2>
+            <p class="welcome-intro-copy">
+              Three days of scientific exchange, practical learning, and collaboration in the historic city of Aswan.
+            </p>
+          </div>
+          <div class="welcome-date">
+            <div class="welcome-date-mark">✦</div>
+            <div>
+              <strong>27–29 January 2027</strong>
+              <span>Aswan, Egypt · Pyramisa Hotel Aswan</span>
+            </div>
+          </div>
+        </div>
+
+        <article class="welcome-letter">
+          <div class="welcome-letter-heading">
+            <div class="quote-mark" aria-hidden="true">“</div>
+            <div>
+              <h3>Welcome Message</h3>
+              <p>Under the presidency of Prof. Dr. Abdo El-Sewisy</p>
+            </div>
+          </div>
+          <div class="welcome-letter-body">
+            <p>Dear Esteemed Professors, Distinguished Doctors, Honored Guests, and Valued Participants,</p>
+            <p>On behalf of the Organizing Committee, and under the distinguished presidency of Prof. Dr. Abdo El-Sewisy, it is our great honor and pleasure to welcome you to MISSUE 2027, taking place from 27 to 29 January 2027 in the historic and enchanting city of Aswan, Egypt.</p>
+            <p>This scientific gathering brings together leading professors, renowned experts, and dedicated healthcare professionals from across the region and beyond, united by a shared commitment to advancing medical knowledge and improving patient care. Over three days, the program will offer a rich blend of scientific sessions, expert-led discussions, live demonstrations, and interactive workshops, all designed to reflect the latest developments and best practices in our field.</p>
+            <p>We sincerely hope that your participation will be both rewarding and inspiring, offering valuable opportunities to exchange experiences, explore new perspectives, build lasting professional connections, and foster collaborations that extend well beyond the conference halls.</p>
+            <p>Your active participation, thoughtful contributions, and valuable insights are essential to the success of this event and to creating an atmosphere of academic excellence and mutual respect. We are deeply grateful for the time and effort each of you has dedicated to being with us.</p>
+            <p>We also invite you to take a moment to enjoy the warmth of Egyptian hospitality and the timeless beauty of Aswan, with its golden Nile views, ancient heritage, and welcoming spirit.</p>
+            <p>We wish you an enjoyable stay and a fruitful, enriching, and memorable conference.</p>
+            <p class="welcome-signoff">Welcome to MISSUE 2027</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="page-shell">
+        <div class="about-heading">
+          <p class="welcome-kicker">Three days · One scientific vision</p>
+          <h2 class="section-title">About MISSUE 2027</h2>
+          <p>A three-day scientific gathering dedicated to advancing knowledge and clinical practice in Obstetrics and Gynecology.</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-copy">
+            <p>Taking place in Aswan, Egypt, from 27–29 January 2027, MISSUE 2027 aims to provide an engaging educational experience through practical training, scientific competition, and high-quality academic discussions. By combining practical education with advanced scientific discussions, the conference creates an inspiring platform for knowledge exchange, professional collaboration, and continuous medical development.</p>
+          </article>
+
+          <div class="about-days">
+            <article class="about-day">
+              <div class="about-day-date">27<br>January</div>
+              <div>
+                <h3>MISSUE Training Hub Day</h3>
+                <p>Hands-on workshops, practical training, and a scientific competition promoting knowledge, clinical excellence, and professional development.</p>
+              </div>
+            </article>
+            <article class="about-day">
+              <div class="about-day-date">28–29<br>January</div>
+              <div>
+                <h3>Scientific Program</h3>
+                <p>Two days of intensive scientific sessions with distinguished experts, updated medical evidence, recent developments, and discussions on key topics and challenges in Obstetrics and Gynecology.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <p class="about-tagline">Three Days. One Scientific Vision. A Shared Commitment to Excellence in Women's Healthcare.</p>
+      </div>
+    </section>
+
+    <section class="section page-shell" id="program">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Program overview</h2>
+        </div>
+        <p>
+          The complete two-day agenda, including the Medical Students Conference, scientific sessions, panel discussions, speakers, breaks, and all items marked TBA in the official program.
+        </p>
+      </div>
+
+      <div class="schedule-header">
+        <h3>Scientific schedule</h3>
+        <div class="theme-pill" style="margin:0; padding:10px 16px; font-size:0.72rem; letter-spacing:0.08em;">
+          <span class="plus">✦</span>
+          Thursday 28 & Friday 29 January 2027
+        </div>
+      </div>
+
+      <div class="agenda-day" id="day1">
+        <h3>Day 1 · Thursday, 28 January 2027</h3>
+        <p>All times follow the official scientific program supplied by the organizers.</p>
+
+        <article class="agenda-session">
+          <h4>Registration</h4>
+          <div class="session-meta">8:00–9:00 AM · Runs alongside the Medical Students Conference</div>
+        </article>
+
+        <article class="agenda-session">
+          <h4>3rd Medical Students Conference</h4>
+          <div class="session-meta">8:00–10:00 AM · In collaboration with Aswan University</div>
+          <p class="session-note"><strong>Chairpersons:</strong> Mahmoud Abdel Aleem, Raouf Roshdy, Mohamed Salama, M. Khodary, Nadin</p>
+          <div class="agenda-table-wrap">
+            <table class="agenda-table">
+              <thead><tr><th>Time</th><th>Group</th><th>Presenter</th></tr></thead>
+              <tbody>
+                <tr><td>8:00–8:20</td><td>Qena Group</td><td>Mostafa Khodary</td></tr>
+                <tr><td>8:20–8:40</td><td>Asyut Group</td><td>Mohamed</td></tr>
+                <tr><td>8:40–9:00</td><td>Luxor Group</td><td>M. Ebrahim</td></tr>
+                <tr><td>9:00–9:20</td><td>Aswan Group</td><td class="tba">TBA</td></tr>
+                <tr><td>9:20–9:40</td><td>Cairo Sudanese Group</td><td>Hosam</td></tr>
+                <tr><td>9:40–10:00</td><td>Minia Group</td><td>Gelany</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="agenda-session">
+          <h4>Session 2 · Young Endoscopist in Focus: New Vision, New Future</h4>
+          <div class="session-meta">10:00 AM–12:00 PM · Chairperson: Usama Shawki</div>
+          <div class="agenda-table-wrap">
+            <table class="agenda-table">
+              <thead><tr><th>Time</th><th>Topic</th><th>Speaker</th></tr></thead>
+              <tbody>
+                <tr><td>10:00–10:30</td><td class="tba">TBA</td><td class="tba">TBA</td></tr>
+                <tr><td>10:30–10:45</td><td class="tba">TBA</td><td class="tba">TBA</td></tr>
+                <tr><td>10:45–11:00</td><td class="tba">TBA</td><td class="tba">TBA</td></tr>
+                <tr><td>11:00–11:15</td><td class="tba">TBA</td><td class="tba">TBA</td></tr>
+                <tr><td>11:15–11:30</td><td class="tba">TBA</td><td class="tba">TBA</td></tr>
+                <tr><td>11:30–12:00</td><td class="tba">TBA</td><td class="tba">TBA</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="agenda-session">
+          <h4>Session 3 · Egyptian Society of Endometriosis and Adenomyosis (ESEA)</h4>
+          <div class="session-meta">12:00–1:30 PM · Patient-Centered Session</div>
+          <p class="session-note"><strong>Moderator:</strong> <span class="tba">TBA</span></p>
+          <p class="session-note"><strong>Panelists:</strong></p>
+          <ul class="faculty-list">
+            <li>Prof. Ahmed Ezz Eldin</li><li>Prof. Emad Darwish</li><li>Prof. Adel Shafik</li>
+            <li>Prof. Ahmad Sherbiny</li><li>Prof. Tamer Hosny</li><li>Prof. Omar Shaaban</li>
+          </ul>
+        </article>
+
+        <article class="agenda-session">
+          <h4>Break</h4>
+          <div class="session-meta">1:30–2:00 PM</div>
+        </article>
+
+        <article class="agenda-session">
+          <h4>Session 4 · The Journey of Reduction of National CS Rate from Plan to Practice</h4>
+          <div class="session-meta">2:00–3:30 PM · Chairpersons: <span class="tba">TBA</span></div>
+          <div class="agenda-table-wrap">
+            <table class="agenda-table">
+              <thead><tr><th>Time</th><th>Name</th><th>Topic</th></tr></thead>
+              <tbody>
+                <tr><td>2:00–2:15</td><td>Abla El Alfy</td><td class="tba">TBA</td></tr>
+                <tr><td>2:15–2:30</td><td>Hisham</td><td class="tba">TBA</td></tr>
+                <tr><td>2:30–2:45</td><td>Robson</td><td class="tba">TBA</td></tr>
+                <tr><td>2:45–3:00</td><td>Diaa El Nashar</td><td class="tba">TBA</td></tr>
+                <tr><td>3:00–3:15</td><td>M. Rashedy</td><td class="tba">TBA</td></tr>
+                <tr><td>3:15–3:30</td><td>Ahmed Fawzy Galal</td><td class="tba">TBA</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="agenda-session">
+          <h4>Session 5 · Medical Disorders in OB/GYN Scope</h4>
+          <div class="session-meta">3:30–5:30 PM · Chairpersons: <span class="tba">TBA</span></div>
+          <div class="agenda-table-wrap">
+            <table class="agenda-table">
+              <thead><tr><th>Time</th><th>Name</th><th>Topic</th></tr></thead>
+              <tbody>
+                <tr><td>3:30–3:45</td><td>Prof. Salah Argon</td><td>Endocrinologic: Thyroid</td></tr>
+                <tr><td>3:45–4:00</td><td>Ayman Abo El Nour</td><td>Mimics of Hypertensive Disorders</td></tr>
+                <tr><td>4:00–4:15</td><td>Hoda</td><td>Hypertension</td></tr>
+                <tr><td>4:15–4:30</td><td>Salah Sanad</td><td>Gestational Diabetes Control</td></tr>
+                <tr><td>4:30–4:45</td><td>Suzy</td><td>Cardiac Diseases with Pregnancy</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="program-note">The source program lists this session through 5:30 PM; no further speaker slots are specified after 4:45 PM.</p>
+        </article>
+
+        <article class="agenda-session">
+          <h4>Session 6 · Panel: Egyptian Culture, Reality Add-on in IVF; Theory, Guideline and Practice</h4>
+          <div class="session-meta">5:30–6:30 PM · Moderator: Dr. Yakob Khalaf</div>
+          <p class="session-note"><strong>Panelists:</strong></p>
+          <ul class="faculty-list">
+            <li>Prof. Mohamed Abo El Ghar</li><li>Prof. Hassan Sallam</li><li>Prof. Gamal Abo El Souror</li>
+            <li>Prof. Moamen Kamed</li><li>Prof. Hesham El-Inany</li><li>Prof. Eman El Gendy</li>
+            <li>Prof. Mohamed Yehia</li>
+          </ul>
+          <p class="session-note"><strong>Company Talk:</strong> After the panel · Time not specified</p>
+        </article>
+      </div>
+
+      <div class="agenda-day" id="day2">
+        <h3>Day 2 · Friday, 29 January 2027</h3>
+
+        <article class="agenda-session">
+          <h4>3rd Medical Students Conference</h4>
+          <div class="session-meta">8:00–10:00 AM · In collaboration with Aswan University</div>
+          <p class="session-note"><strong>Chairpersons:</strong> Mahmoud Abdel Aleem, Raouf Roshdy, Mohamed Salama, M. Khodary, Gelany, Nadin</p>
+          <div class="agenda-table-wrap">
+            <table class="agenda-table">
+              <thead><tr><th>Time</th><th>Speaker / item</th></tr></thead>
+              <tbody>
+                <tr><td>9:30–9:45</td><td>Mahmoud Abdel Aleem</td></tr>
+                <tr><td class="tba">TBA</td><td>Raouf Roshdy</td></tr>
+                <tr><td class="tba">TBA</td><td>Mohamed Salama</td></tr>
+                <tr><td class="tba">TBA</td><td>M. Khodary</td></tr>
+                <tr><td class="tba">TBA</td><td>Head of the Doctors' Syndicate</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="agenda-session">
+          <h4>Fetal Medicine</h4>
+          <div class="session-meta">10:00 AM–12:00 PM · Chairpersons: <span class="tba">Not specified</span></div>
+          <div class="agenda-table-wrap">
+            <table class="agenda-table">
+              <thead><tr><th>Time</th><th>Speaker</th><th>Topic</th></tr></thead>
+              <tbody>
+                <tr><td>10:00–10:20</td><td>Mona A. Ghar</td><td class="tba">TBA</td></tr>
+                <tr><td>10:20–10:40</td><td>Dalia El Haieg</td><td class="tba">TBA</td></tr>
+                <tr><td>10:40–11:00</td><td>Alaa Ebrahshi</td><td class="tba">TBA</td></tr>
+                <tr><td>11:00–11:20</td><td>Ahmad Hosien</td><td class="tba">TBA</td></tr>
+                <tr><td>11:20–11:40</td><td>Hassan Gaafar</td><td class="tba">TBA</td></tr>
+                <tr><td>11:40–12:00</td><td>Ahmed Zakraia El Shekha</td><td class="tba">TBA</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="agenda-session">
+          <h4>Prayer Break</h4>
+          <div class="session-meta">12:00–1:30 PM</div>
+        </article>
+
+        <article class="agenda-session">
+          <h4>Session 3 · Advanced Laparoscopy</h4>
+          <div class="session-meta">1:30–3:00 PM · Chairpersons: Hosam A. M., Fady, Karem Labib, Moh. Nabil, Waled Tawfik, H. Faheem</div>
+          <div class="agenda-table-wrap">
+            <table class="agenda-table">
+              <thead><tr><th>Time</th><th>Speaker</th><th>Topic</th></tr></thead>
+              <tbody>
+                <tr><td class="tba">TBA</td><td>Hosam A. M.</td><td class="tba">TBA</td></tr>
+                <tr><td class="tba">TBA</td><td>Fady</td><td class="tba">TBA</td></tr>
+                <tr><td class="tba">TBA</td><td>Karem Labib</td><td class="tba">TBA</td></tr>
+                <tr><td class="tba">TBA</td><td>Moh. Nabil</td><td class="tba">TBA</td></tr>
+                <tr><td class="tba">TBA</td><td>Waled Tawfik</td><td class="tba">TBA</td></tr>
+                <tr><td class="tba">TBA</td><td>H. Faheem</td><td class="tba">TBA</td></tr>
+                <tr><td class="tba">TBA</td><td>Discussion</td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="agenda-session">
+          <h4>Niche 360° · MISSUE Experience</h4>
+          <div class="session-meta">3:00–4:30 PM</div>
+          <div class="agenda-table-wrap">
+            <table class="agenda-table">
+              <thead><tr><th>Time</th><th>Speaker / item</th></tr></thead>
+              <tbody>
+                <tr><td>3:00–3:15</td><td>Panel · Names <span class="tba">TBA</span></td></tr>
+                <tr><td>3:15–3:30</td><td>Dr. Aly</td></tr>
+                <tr><td>3:30–3:45</td><td>Dr. Nahla</td></tr>
+                <tr><td>3:45–4:00</td><td>Dr. Hosam</td></tr>
+                <tr><td>4:00–4:15</td><td>Dr. A. El Elah</td></tr>
+                <tr><td>4:15–4:30</td><td class="tba">TBA</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="agenda-session">
+          <h4>Break</h4>
+          <div class="session-meta">4:30–5:00 PM</div>
+        </article>
+
+        <article class="agenda-session">
+          <h4>Multiple Myoma: Different Aspects</h4>
+          <div class="session-meta">5:00–6:30 PM · Chairperson: Prof. <span class="tba">Name TBA</span></div>
+          <div class="agenda-table-wrap">
+            <table class="agenda-table">
+              <thead><tr><th>Speaker</th><th>Topic</th><th>Time</th></tr></thead>
+              <tbody>
+                <tr><td>Amr El Hossieny</td><td>Robotic Myomectomy</td><td class="tba">TBA</td></tr>
+                <tr><td>Yakob Khalaf</td><td>Guideline of Myoma before IVF</td><td class="tba">TBA</td></tr>
+                <tr><td>Ayman Abo El Nour</td><td>AUB with Myoma</td><td class="tba">TBA</td></tr>
+                <tr><td>Dalia El Haieg</td><td>Sonographic Tips and Tricks of Myoma Mapping</td><td class="tba">TBA</td></tr>
+                <tr><td>Fady</td><td>Myoma Resection</td><td class="tba">TBA</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="session-note">Individual timings per topic: <span class="tba">TBA</span></p>
+        </article>
+
+        <article class="agenda-session">
+          <h4>ESHRE Guideline 2026</h4>
+          <div class="session-meta">6:30–7:30 PM · Speaker: Prof. Abobakr Elnashar</div>
+          <p class="session-note"><strong>Panel:</strong></p>
+          <ul class="faculty-list">
+            <li>Prof. Hesham El-Inany</li><li>Prof. M. Salama</li><li>Prof. Hassan Sallam</li>
+            <li>Dr. Yakob Khalaf</li><li>Prof. M. A. El Ghar</li><li>Prof. G. Abo El Souror</li>
+          </ul>
+          <p class="session-note"><strong>Closing:</strong> <span class="tba">TBA</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section page-shell" id="speakers">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Faculty & contributors</h2>
+        </div>
+        <p>
+          Names below are transcribed from the supplied program. Session assignments and pending details are shown in the schedule above.
+        </p>
+      </div>
+
+      <div class="speaker-grid">
+        <article class="speaker-card">
+          <div class="speaker-photo">Day 1 · ESEA & IVF panel</div>
+          <div class="speaker-body">
+            <h4>Panelists</h4>
+            <p>Ahmed Ezz Eldin · Emad Darwish · Adel Shafik · Ahmad Sherbiny · Tamer Hosny · Omar Shaaban</p>
+            <p class="speaker-role">ESEA</p>
+            <p>Mohamed Abo El Ghar · Hassan Sallam · Gamal Abo El Souror · Moamen Kamed · Hesham El-Inany · Eman El Gendy · Mohamed Yehia</p>
+            <p class="speaker-role">IVF panel</p>
+          </div>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">Day 1 · Scientific sessions</div>
+          <div class="speaker-body">
+            <h4>Contributors</h4>
+            <p>Mahmoud Abdel Aleem · Raouf Roshdy · Mohamed Salama · M. Khodary · Nadin · Mostafa Khodary · M. Ebrahim · Hosam · Gelany</p>
+            <p>Usama Shawki · Abla El Alfy · Hisham · Robson · Diaa El Nashar · M. Rashedy · Ahmed Fawzy Galal</p>
+            <p>Salah Argon · Ayman Abo El Nour · Hoda · Salah Sanad · Suzy · Yakob Khalaf</p>
+          </div>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">Day 2 · Scientific sessions</div>
+          <div class="speaker-body">
+            <h4>Contributors</h4>
+            <p>Mona A. Ghar · Dalia El Haieg · Alaa Ebrahshi · Ahmad Hosien · Hassan Gaafar · Ahmed Zakraia El Shekha</p>
+            <p>Hosam A. M. · Fady · Karem Labib · Moh. Nabil · Waled Tawfik · H. Faheem · Aly · Nahla</p>
+            <p>Amr El Hossieny · Abobakr Elnashar · M. Salama · M. A. El Ghar · G. Abo El Souror</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section page-shell" id="venue">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Venue</h2>
+        </div>
+        <p>
+          Hosted in the heart of Aswan, offering a modern conference setting and a memorable setting for scientific exchange.
+        </p>
+      </div>
+
+      <div class="venue-section">
+        <div class="venue-grid">
+          <div class="venue-map" aria-label="Venue map illustration">
+            <div class="marker"></div>
+          </div>
+
+          <div class="venue-details">
+            <div class="venue-item">
+              <div class="label">Location</div>
+              <strong>Pyramisa Hotel Aswan</strong>
+              <p>Downtown Aswan, a welcoming destination for healthcare professionals and international delegates.</p>
+            </div>
+
+            <div class="venue-item">
+              <div class="label">Accommodation</div>
+              <strong>Conference hotel</strong>
+              <p>Room options, networking lounges, and on-site support for attendees throughout the event.</p>
+            </div>
+
+            <div class="venue-item">
+              <div class="label">Access</div>
+              <strong>Easy arrival</strong>
+              <p>Convenient transport and hospitality arrangements for speakers, participants, and guests.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-banner">
+        <div>
+          <h3>Join us in Aswan for MISSUE 2027</h3>
+          <p>Connect with experts, discover modern uterine surgery strategies, and contribute to a progressive learning experience.</p>
+        </div>
+        <a class="button primary" href="#day1">Explore the scientific program</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>MISSUE 2027 · Scientific Program</div>
+      <div>Minimal Invasive Surgery Society of Upper Egypt • TAKAMOL Foundation</div>
+    </div>
+  </footer>
+  <script>
+    const navigation = document.getElementById('main-navigation');
+    const navigationToggle = navigation.querySelector('.nav-toggle');
+    const navigationMenu = navigation.querySelector('.nav-menu');
+
+    navigationToggle.addEventListener('click', function() {
+      const isExpanded = navigationToggle.getAttribute('aria-expanded') === 'true';
+      navigationToggle.setAttribute('aria-expanded', String(!isExpanded));
+      navigation.classList.toggle('is-open', !isExpanded);
+    });
+
+    navigationMenu.addEventListener('click', function(event) {
+      if (event.target.closest('a')) {
+        navigationToggle.setAttribute('aria-expanded', 'false');
+        navigation.classList.remove('is-open');
+      }
+    });
+  </script>
+</body>
+</html>
